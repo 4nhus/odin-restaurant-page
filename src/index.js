@@ -1,6 +1,7 @@
 import {
-    loadNavigation, loadMain
+    loadNavigation, loadHome
 } from "./page-loader";
+import './style.css';
 
 loadNavigation();
-loadMain();
+loadHome();
