@@ -1,0 +1,10 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-systrem, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+img {
+    width: 100vw;
+    height: auto;
+}
