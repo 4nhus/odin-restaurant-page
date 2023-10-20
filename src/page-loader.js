@@ -38,7 +38,7 @@ function loadNavigation() {
     menuButton.addEventListener('click', () => {
         if (content.children.item(0).id !== 'menu') {
             clearContent();
-            loadContact();
+            loadMenu();
         }
     });
 
@@ -85,6 +85,36 @@ function loadContact() {
     contactButton.innerText = "Submit"
 
     loadSection([image, contactForm, contactButton], 'contact');
+}
+
+function loadMenu() {
+    const menu = document.createElement('div');
+    menu.id = 'burger-menu';
+
+    const burgerFactory = function (name, info, price) {
+        const burger = document.createElement('div');
+        burger.classList.add('burger');
+        const burgerName = document.createElement('h2');
+        burgerName.innerText = name;
+        const burgerInfo = document.createElement('p');
+        burgerInfo.innerText = info;
+        const burgerPrice = document.createElement('p');
+        burgerPrice.innerText = `Price: ${price}`;
+        burgerPrice.classList.add('price')
+        burger.appendChild(burgerName);
+        burger.appendChild(burgerInfo);
+        burger.appendChild(burgerPrice);
+        return burger;
+    }
+
+    const theTexan = burgerFactory('The Texan', 'All american, all delicious. Featuring maple bacon, two giant fried chicken fillets, onion rings, pickles, smoky BBQ sauce - all between two of the finest Texan brioche buns!', '$25');
+    const bobsBasicBurger = burgerFactory('Bob\'s Basic', 'A basic hamburger.', '$10');
+    const bobsBestBurger = burgerFactory('Bob\'s Best', 'A deluxe hamburger with everything grown and made in-house; we have a 25000 hectare farm just for this...', '$35');
+    menu.appendChild(theTexan);
+    menu.appendChild(bobsBasicBurger);
+    menu.appendChild(bobsBestBurger);
+
+    loadSection([image, menu], 'menu');
 }
 
 function loadSection(sectionDivs, sectionId) {
