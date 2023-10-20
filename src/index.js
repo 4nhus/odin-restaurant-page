@@ -1,4 +1,6 @@
-import mainPageLoader from "./main-page-loader";
-import './style.css';
+import {
+    loadNavigation, loadMain
+} from "./page-loader";
 
-mainPageLoader();
+loadNavigation();
+loadMain();
