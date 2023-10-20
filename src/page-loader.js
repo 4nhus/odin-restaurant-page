@@ -2,6 +2,8 @@ import Burger from "./burger.jpg";
 
 const body = document.querySelector('body');
 const content = document.getElementById('content');
+const image = document.createElement('img');
+image.src = Burger;
 
 function clearContent() {
     content.removeChild(content.firstChild);
@@ -16,7 +18,7 @@ function loadNavigation() {
     homeButton.addEventListener('click', () => {
         if (content.children.item(0).id !== 'home') {
             clearContent();
-            loadhomePage();
+            loadHome();
         }
     });
 
@@ -26,7 +28,7 @@ function loadNavigation() {
     contactButton.addEventListener('click', () => {
         if (content.children.item(0).id !== 'contact') {
             clearContent();
-            loadhomePage();
+            loadContact();
         }
     });
 
@@ -36,7 +38,7 @@ function loadNavigation() {
     menuButton.addEventListener('click', () => {
         if (content.children.item(0).id !== 'menu') {
             clearContent();
-            loadhomePage();
+            loadContact();
         }
     });
 
@@ -47,9 +49,6 @@ function loadNavigation() {
 }
 
 function loadHome() {
-    const image = document.createElement('img');
-    image.src = Burger;
-
     const heading = document.createElement('h1');
     heading.innerText = 'Welcome to Bob\'s Bodacious Burgers, where every bite is a flavor explosion and every meal is a celebration' +
         '            of all things delicious!';
@@ -60,6 +59,32 @@ function loadHome() {
         '            buds begging for more.';
 
     loadSection([image, heading, copy], 'home');
+}
+
+function loadContact() {
+    const contactForm = document.createElement('div');
+    contactForm.innerHTML = '<form action="" id="form">\n' +
+        '        <h3>Let\'s do this!</h3>\n' +
+        '        <div class="form-info">\n' +
+        '            <ul>\n' +
+        '                <li><label for="first-name">FIRST NAME *:</label>\n' +
+        '                    <input type="text" id="first-name" name="first-name" required></li>\n' +
+        '                <li><label for="email">EMAIL *:</label>\n' +
+        '                    <input type="email" id="email" name="email" required></li>\n' +
+        '            </ul>\n' +
+        '            <ul>\n' +
+        '                <li><label for="last-name">LAST NAME *:</label>\n' +
+        '                    <input type="text" id="last-name" name="last-name" required></li>\n' +
+        '                <li><label for="phone-number">PHONE NUMBER:</label>\n' +
+        '                    <input type="number" id="phone-number" name="phone-number"></li>\n' +
+        '            </ul>\n' +
+        '        </div>\n' +
+        '    </form>';
+
+    const contactButton = document.createElement('button');
+    contactButton.innerText = "Submit"
+
+    loadSection([image, contactForm, contactButton], 'contact');
 }
 
 function loadSection(sectionDivs, sectionId) {

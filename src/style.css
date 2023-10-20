@@ -15,15 +15,14 @@ body {
     height: 100vh;
 }
 
-#content {
-    width: calc(100% - 40px);
-    padding: 20px;
-}
-
 #content > * {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+#content > * > h1, #content > * > p {
+    margin: 0 20px 0 20px;
 }
 
 #navigation {
@@ -34,5 +33,37 @@ body {
 }
 
 #navigation > * {
+    background-color: transparent;
+    border-style: none;
+    flex: 1;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-info {
+    flex: 1;
+    display: flex;
+    gap: 60px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    gap: 10px;
+}
+
+li > * {
     flex: 1;
 }
